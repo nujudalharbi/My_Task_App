@@ -1,9 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tasks_app/task_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'auth_screen.dart';
+import 'intro.dart';
 
 
+void main (){
 
-void main() {
   runApp(const  MyApp());
 }
 
@@ -15,7 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: TaskScreen(),
+      home: IntroScreen(),
+      routes: {
+        'login' : (context) => AuthScreen(),
+
+      },
     );
   }
 

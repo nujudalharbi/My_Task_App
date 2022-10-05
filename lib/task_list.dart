@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tasks_app/task.dart';
 import 'package:tasks_app/tasks_list.dart';
 
+
 class TaskList extends StatefulWidget{
 
   final List<Task> tasks;
@@ -25,7 +26,7 @@ class _TaskListState extends State<TaskList> {
                 setState(() {
                 widget.tasks[index].doneChange() ;
                });
-                }
+                },
 
 
     ) ;
