@@ -11,12 +11,40 @@ class TaskTitle extends StatelessWidget{
 
         ListTile(
           title: Text("read two page"),
-          trailing: Checkbox(
-            value: false,
-            onChanged: null,
-          ),
+          trailing: TaskCheckbox(),
         );
 
 
   }
+}
+
+
+class TaskCheckbox extends StatefulWidget {
+
+  @override
+  State<TaskCheckbox> createState() => _TaskCheckboxState();
+}
+class _TaskCheckboxState extends State<TaskCheckbox>{
+  bool? isChecked = true;
+  @override
+  Widget build(BuildContext context){
+
+
+
+
+    return Checkbox(
+      activeColor: Colors.red,
+      value: isChecked,
+      onChanged: (newValue){
+setState(() {
+  isChecked = newValue ;
+});
+      },
+
+
+    );
+
+
+
+}
 }
