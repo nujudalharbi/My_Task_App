@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
         
         ),
         
-        'register' : (context) => AuthScreen(authType: AuthType.register)
+        'register' : (context) => AuthScreen(authType: AuthType.register),
+        'todo' : (context) => TaskScreen(),
 
       },
     );
