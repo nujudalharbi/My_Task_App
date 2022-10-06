@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'auth_form.dart';
 
-
+enum AuthType {
+  login , register
+}
 
 
 
 class AuthScreen extends StatelessWidget {
-  const AuthScreen({Key? key}) : super(key: key);
+ final AuthType authType;
+
+  const AuthScreen({super.key, required this.authType});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,7 @@ class AuthScreen extends StatelessWidget {
 
                   ),
 // Image.asset()
-                AuthForm(),
+                AuthForm(authType: authType,),
                 ],
               ),
             ),

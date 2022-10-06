@@ -22,7 +22,12 @@ class MyApp extends StatelessWidget {
 
       home: IntroScreen(),
       routes: {
-        'login' : (context) => AuthScreen(),
+        'login' : (context) => AuthScreen(authType: AuthType.login,
+        
+        
+        ),
+        
+        'register' : (context) => AuthScreen(authType: AuthType.register)
 
       },
     );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tasks_app/auth_screen.dart';
 
 class AuthForm extends StatelessWidget {
-  const AuthForm({Key? key}) : super(key: key);
+  final AuthType authType;
+  const AuthForm({Key? key, required this.authType}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,27 @@ class AuthForm extends StatelessWidget {
                TextButton(
                   onPressed: () {
 
-                    Navigator.of(context).pushNamed('login');}, child:  Text( 'Get Started', style: TextStyle(
+                    }, child:  Text( authType == AuthType.login ? 'Login' : 'Register', style: TextStyle(
+
+                  color: Colors.white , fontSize: 40, backgroundColor: Colors.red ,
+
+
+                ) ,
+
+                ),
+
+
+
+                ),
+
+                TextButton(
+                  onPressed: () {
+                    if (authType == AuthType.login)
+                      Navigator.of(context).pushReplacementNamed('register');
+                    else
+                      Navigator.of(context).pushReplacementNamed('login');
+
+                    }, child:  Text(authType == AuthType.register ?  'have a count ' : "Don't a count  ", style: TextStyle(
 
                   color: Colors.white , fontSize: 40, backgroundColor: Colors.red ,
 
