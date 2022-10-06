@@ -4,9 +4,13 @@ class TaskTitle extends StatelessWidget{
 
  final bool isChecked ;
  final String taskTitle;
+
+
  final void Function(bool?) checkboxChange ;
+
+  var donTask;
  // final void Function() listTitleDelete ;
-TaskTitle({required this.isChecked , required this.taskTitle ,required this.checkboxChange ,
+TaskTitle({required this.isChecked , required this.taskTitle ,required this.checkboxChange,
   // required this.listTitleDelete
 } );
   @override
@@ -22,20 +26,27 @@ TaskTitle({required this.isChecked , required this.taskTitle ,required this.chec
     value: isChecked,
     onChanged: checkboxChange,
 
-    // onChanged: checkboxChange,
-// setState(() {
-//   isChecked = newValue ;
-// } ,
+
 
         ),
-// onLongPress: listTitleDelete,
+
+
+        onLongPress: (){
+
+
+
+
+
+        },
+
+
+
+
+
+
+
       );
   }
-  }
 
-// (bool? newValue){
-// setState(() {
-// isChecked = newValue! ;
-// });
-// }
+  }
 
