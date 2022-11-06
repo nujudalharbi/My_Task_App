@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import 'package:tasks_app/task_data.dart';
+import 'package:tasks_app/controller/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  final Function addTaskCallback;
 
-  AddTaskScreen(this.addTaskCallback);
+  TaskData controller = Get.put(TaskData());
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +33,8 @@ class AddTaskScreen extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              Provider.of<TaskData>(context, listen: false)
-                  .addTask(newTaskTitle!);
+
+                  controller.addTask(newTaskTitle!);
 
               Navigator.pop(context);
 

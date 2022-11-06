@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tasks_app/task_data.dart';
-import 'package:tasks_app/task_screen.dart';
+import 'package:get/get.dart';
+import 'package:tasks_app/controller/task_data.dart';
+import 'package:tasks_app/view/screens/task_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -18,11 +19,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => TaskData(),
-      child: MaterialApp(
+
+  return
+      GetMaterialApp(
         home: TaskScreen(),
-      ),
+
     );
   }
 }

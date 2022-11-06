@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:tasks_app/add_task_screen.dart';
-import 'package:tasks_app/task.dart';
-import 'package:tasks_app/task_list.dart';
+import 'package:get/get.dart';
+import 'package:tasks_app/view/screens/add_task_screen.dart';
+import 'package:tasks_app/controller/task.dart';
+
 import 'package:provider/provider.dart';
 
-class TaskScreen extends StatelessWidget {
+import '../../controller/task_data.dart';
 
+class TaskScreen extends StatelessWidget {
+  TaskData controller = Get.put(TaskData());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,9 +21,7 @@ class TaskScreen extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: AddTaskScreen((newTaskTitle) {
-
-                }),
+                child: AddTaskScreen()
               ),
             ),
           );
@@ -55,7 +56,25 @@ class TaskScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.blueGrey,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: TaskList(),
+               child:
+                //
+                ListView.builder(
+                    itemCount: controller.tasks.length,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        margin: EdgeInsets.all(10),
+                        child: ListTile(
+                          title: Text('${controller.tasks[index]}'),
+                          leading: Icon(Icons.check_box_outline_blank),
+                          trailing: IconButton(
+                            onPressed: () {
+                             // controller.remove(index);
+                            },
+                            icon: Icon(Icons.delete),
+                          ),
+                        ),
+                      );
+                    }),
               ),
             )
           ],

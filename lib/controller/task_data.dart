@@ -1,25 +1,37 @@
 import 'package:flutter/widgets.dart';
-import 'package:tasks_app/task.dart';
+import 'package:get/get.dart';
+import 'package:tasks_app/controller/task.dart';
 
-class TaskData extends ChangeNotifier {
+class TaskData extends GetxController {
   List<Task> tasks = [
     Task(name: "complete project "),
     Task(name: "read two page  "),
     Task(name: "go to mall "),
-  ];
+  ].obs;
+
+  late final String name;
+  late bool isDone;
   void addTask(String newTaskTitle) {
     tasks.add(Task(name: newTaskTitle));
 
-    notifyListeners();
+
   }
 
   void updateTask(Task task) {
     task.doneChange();
-    notifyListeners();
+
   }
 
   void deleteTask(Task task) {
     tasks.remove(task);
-    notifyListeners();
+
+  }
+
+
+
+
+
+  void doneChange() {
+    isDone = !isDone;
   }
 }
