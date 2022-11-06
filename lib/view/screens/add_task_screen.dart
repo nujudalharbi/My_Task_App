@@ -38,10 +38,7 @@ class AddTaskScreen extends StatelessWidget {
 
               Navigator.pop(context);
 
-              // _firestore.collection("Title").add({
-              //   'text': newTaskTitle
-              // }
-              // );
+
             },
             child: Text("Add"),
             style: TextButton.styleFrom(

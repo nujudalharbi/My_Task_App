@@ -56,8 +56,7 @@ class TaskScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.blueGrey,
                     borderRadius: BorderRadius.all(Radius.circular(20))),
-               child:
-                //
+               child: Obx(()=>
                 ListView.builder(
                     itemCount: controller.tasks.length,
                     itemBuilder: (context, index) {
@@ -68,7 +67,7 @@ class TaskScreen extends StatelessWidget {
                           leading: Icon(Icons.check_box_outline_blank),
                           trailing: IconButton(
                             onPressed: () {
-                             // controller.remove(index);
+                             // controller.deleteTask(index);
                             },
                             icon: Icon(Icons.delete),
                           ),
@@ -77,7 +76,7 @@ class TaskScreen extends StatelessWidget {
                     }),
               ),
             )
-          ],
+            )],
         ),
       ),
     );

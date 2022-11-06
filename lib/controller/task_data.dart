@@ -3,16 +3,17 @@ import 'package:get/get.dart';
 import 'package:tasks_app/controller/task.dart';
 
 class TaskData extends GetxController {
-  List<Task> tasks = [
-    Task(name: "complete project "),
-    Task(name: "read two page  "),
-    Task(name: "go to mall "),
+ var tasks = [
+   "complete project ",
+    "read two page  ",
+    "go to mall ",
+
   ].obs;
 
   late final String name;
   late bool isDone;
   void addTask(String newTaskTitle) {
-    tasks.add(Task(name: newTaskTitle));
+    tasks.add( newTaskTitle);
 
 
   }
@@ -34,4 +35,5 @@ class TaskData extends GetxController {
   void doneChange() {
     isDone = !isDone;
   }
+
 }
